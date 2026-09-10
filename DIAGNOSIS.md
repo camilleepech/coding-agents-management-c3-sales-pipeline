@@ -69,7 +69,7 @@ tests still pass.
 assert parse_amount("1 321,49") == Decimal("1321.49")
 ```
 
-Red on the original code (`parse_amount` returns `Decimal("1")`), green after the
+Reed on the original code (`parse_amount` returns `Decimal("1")`), green after the
 fix. Verified red by stashing the fix (`git stash push -- src/pipeline/parse.py`)
 and running the test.
 
@@ -80,3 +80,5 @@ It is written in parse_amount that the amounts are written in different shapes s
 ## Did this take more than 1h30?
 
 It took 1h30.
+
+[AI was used to help me write this document. Every line was verified by me and modified if necessary.]
