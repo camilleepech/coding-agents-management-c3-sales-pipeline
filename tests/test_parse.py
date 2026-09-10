@@ -20,6 +20,13 @@ def test_strips_surrounding_whitespace():
     assert parse_amount("  19.99  ") == Decimal("19.99")
 
 
+def test_parses_thousands_separator():
+    # The partner export writes amounts >= 1000 in French regional format:
+    # a no-break space (U+00A0) as the thousands separator, comma as decimal.
+    #   "1 321,49"  ->  1321.49
+    assert parse_amount("1 321,49") == Decimal("1321.49")
+
+
 def test_unparseable_amount_becomes_zero():
     assert parse_amount("n/a") == Decimal("0.00")
     assert parse_amount("") == Decimal("0.00")
